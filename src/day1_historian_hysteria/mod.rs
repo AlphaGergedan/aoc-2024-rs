@@ -1,11 +1,9 @@
-mod read_input;
+mod input_file_reader;
 mod location_lists;
+pub mod distance_calculator;
 
-pub mod total_distance;
-
-use read_input::read_input;
+use input_file_reader::read_input;
 use location_lists::LocationLists;
-pub use total_distance::total_distance;
-
+pub use distance_calculator::total_distance;
 
 const FILENAME: &str = "data/day1_input.txt";
