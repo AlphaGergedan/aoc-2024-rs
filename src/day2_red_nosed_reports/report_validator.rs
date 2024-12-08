@@ -1,5 +1,4 @@
-use num::{Signed, Zero};
-
+use num::Signed;
 use crate::Result;
 use super::{read_input_file, ReportList};
 
