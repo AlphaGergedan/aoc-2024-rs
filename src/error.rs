@@ -6,6 +6,7 @@ pub(super) enum Error {
     CannotReadFile {
         msg: String,
     },
+
     #[error("Cannot parse line")]
     CannotParseLine,
 }

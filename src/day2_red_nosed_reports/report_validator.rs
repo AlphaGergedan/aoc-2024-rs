@@ -17,7 +17,7 @@ pub fn get_safe_reports_len(tolerate: bool) -> Result<u64> {
     // Then the report is safe.
 
     for report in &reports {
-        if is_report_safe(&report) {
+        if is_report_safe(report) {
             num_safe_reports += 1;
         } else {
             // Only check again if we are in the second part (tolerate)
@@ -56,7 +56,7 @@ fn is_report_safe(report: &[i32]) -> bool {
         let abs_difference = difference.abs();
 
         // 2. cond
-        if abs_difference < 1 || abs_difference > 3 {
+        if !(1..=3).contains(&abs_difference) {
             return false;
         }
 
