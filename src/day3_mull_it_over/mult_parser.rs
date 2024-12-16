@@ -88,7 +88,7 @@ impl MultInstruction {
         while idx < str.len() {
             if !is_enabled {
                 // Ensure 'naively' here that idx_mul exists
-                if str[idx..].find(Self::MUL).is_none() {
+                if !str[idx..].contains(Self::MUL) {
                     break;
                 }
 
@@ -158,6 +158,15 @@ impl MultInstruction {
 pub fn get_sum_of_mults() -> Result<u32> {
     let input_str: String = read_input_file()?;
     let muls: Vec<MultInstruction> = MultInstruction::parse_muls(&input_str);
+    let sum = MultInstruction::sum_muls(&muls);
+    Ok(sum)
+}
+
+/// Reads the input file, parses the mul instructions, evaluates
+/// them one by one and reduces the result into a sum.
+pub fn get_sum_of_mults_regex() -> Result<u32> {
+    let input_str: String = read_input_file()?;
+    let muls: Vec<MultInstruction> = MultInstruction::parse_muls_regex(&input_str);
     let sum = MultInstruction::sum_muls(&muls);
     Ok(sum)
 }
